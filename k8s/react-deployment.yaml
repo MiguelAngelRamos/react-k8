@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: react-app # Nombre del Deployment 
 spec:
-  replicas: 2
+  replicas: 2 # Número de réplicas que deseas ejecutar
   selector:
     matchLabels:
-      app: react-app
+      app: react-app # Selector para identificar los pods (buscar los pods y vamos utilizar este label)
   template:
     metadata:
       labels:
-        app: react-app
+        app: react-app # Etiqueta que se asignará a los pods creados por este Deployment
     spec:
-      containers:
-      - name: react-k8
-        image: mramoscli/react-k8:latest
+      containers: # Contenedores que se ejecutarán en los pods
+      - name: react-k8 # Nombre del contenedor
+        image: mramoscli/react-k8:latest # Imagen del contenedor que se ejecutará, tomada del Docker Hub
         ports:
-          - containerPort: 80
+          - containerPort: 80 # Puerto en el que el contenedor escuchará las solicitudes
